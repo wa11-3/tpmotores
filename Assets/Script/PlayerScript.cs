@@ -6,6 +6,10 @@ public class PlayerScript : MonoBehaviour
 {
     public float speedMove = 10.0f;
 
+    public GameObject Bullet;
+    public float bulletForce;
+    public Transform spawnPosition;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -21,6 +25,17 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject bulletClone = Instantiate(Bullet, spawnPosition.position, spawnPosition.rotation);
+
+            Rigidbody rb = bulletClone.GetComponent<Rigidbody>();
+
+            rb.AddRelativeForce(Vector3.up * bulletForce, ForceMode.Impulse);
+
+            Destroy(bulletClone, 5);
         }
     }
 }

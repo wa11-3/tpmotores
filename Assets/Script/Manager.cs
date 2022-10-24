@@ -1,22 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Manager : MonoBehaviour
 {
     public GameObject player;
     public GameObject enemy;
 
-    public GameObject[] enemiesPosition;
-    public GameObject[] enemies;
-    float timer;
+    public List<GameObject> enemies;
+    public float timer;
 
     public float[] xMaxPosition;
     public float[] zMaxPosition;
 
+    public static bool gameover = true;
+
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI enemiesText;
+
     private void Start()
     {
-        ResetGame();
+        enemies.Clear();
+        var totalEmenies = Random.Range(2, 5);
+
+        for (int i = 0; i < totalEmenies; i++)
+        {
+            enemies.Add(Instantiate(enemy, new Vector3(
+                Random.Range(xMaxPosition[0], xMaxPosition[1]),
+                0.5f,
+                Random.Range(zMaxPosition[0], xMaxPosition[1])),
+                Quaternion.identity));
+        }
+
+        StartCoroutine(Timer());
     }
 
     private void Update()
@@ -24,19 +42,13 @@ public class Manager : MonoBehaviour
 
     }
 
-    void ResetGame()
+    public IEnumerator Timer()
     {
-        var totalEmenies = Random.Range(2, 5);
-        enemies = new GameObject[totalEmenies];
-        enemiesPosition = new GameObject[totalEmenies];
-
-        for(int i = 0; i < enemies.Length; i++)
+        while (timer > 0)
         {
-            enemies[i] = Instantiate(enemy, new Vector3(
-                Random.Range(xMaxPosition[0], xMaxPosition[1]),
-                0.5f,
-                Random.Range(zMaxPosition[0], xMaxPosition[1])),
-                Quaternion.identity) ;
+            yield return new WaitForSeconds(1.0f);
+            timer--;
         }
+        SceneManager.LoadScene("GameOver");
     }
 }

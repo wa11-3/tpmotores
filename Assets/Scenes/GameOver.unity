@@ -272,7 +272,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TP Motors
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -653,7 +653,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: Lobby
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 1421926537}
   - component: {fileID: 1421926536}
   - component: {fileID: 1421926535}
-  - component: {fileID: 1421926539}
+  - component: {fileID: 1421926540}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -834,7 +834,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 1919.9999, y: 1079.9999}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1421926539
+--- !u!114 &1421926540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -843,9 +843,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1421926534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2d03727651346fbae017e7c6d2bd97, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a921cd11aeb241d8b7e342d86a56df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titelText: {fileID: 368436261}
 --- !u!1 &1579698410
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,9 +931,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421926539}
-        m_TargetAssemblyTypeName: LobbyScript, Assembly-CSharp
-        m_MethodName: GotoGame
+      - m_Target: {fileID: 1421926540}
+        m_TargetAssemblyTypeName: GameOverScript, Assembly-CSharp
+        m_MethodName: GotoLobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
