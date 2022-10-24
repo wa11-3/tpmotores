@@ -45,6 +45,7 @@ public class Manager : MonoBehaviour
 
     private void Start()
     {
+        gameover = true;
         enemies.Clear();
         totalEnemies = Random.Range(2, 5);
 
