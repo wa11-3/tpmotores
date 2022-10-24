@@ -25,6 +25,7 @@ public class EnemyScript : MonoBehaviour
         hp = hp - 25;
         if (hp < 0)
         {
+            Manager.Singleton.enemyCount();
             Destroy(gameObject);
         }
     }
